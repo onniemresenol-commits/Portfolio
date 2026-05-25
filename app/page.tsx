@@ -1,65 +1,140 @@
-import Image from "next/image";
+import ImageGrid from "./components/ImageGrid";
+
+const teambrain_images = [
+  { src: "/images/login.png", alt: "TeamBrain login screen" },
+  { src: "/images/graph.png", alt: "TeamBrain knowledge graph" },
+  { src: "/images/connect.png", alt: "TeamBrain connect integrations" },
+  { src: "/images/promt1.png", alt: "TeamBrain prompt example 1" },
+  { src: "/images/promt2.png", alt: "TeamBrain prompt example 2" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <main
+      style={{
+        maxWidth: 640,
+        margin: "0 auto",
+        paddingTop: 48,
+        paddingBottom: 48,
+        paddingLeft: 32,
+        paddingRight: 32,
+      }}
+    >
+      {/* Header */}
+      <h1 style={{ fontSize: 32, fontWeight: 600, lineHeight: 1.2 }}>
+        Onni Emre Senol
+      </h1>
+      <p style={{ fontSize: 14, color: "#666", marginTop: 8 }}>
+        Business student at Hanken School of Economics · Co-founder of HankAI
+      </p>
+      <div style={{ display: "flex", gap: 16, marginTop: 12 }}>
+        <a
+          href="https://www.linkedin.com/in/onni-senol-338277224/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link"
+          style={{ fontSize: 14 }}
+        >
+          LinkedIn →
+        </a>
+        <a
+          href="https://github.com/onniemresenol-commits"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link"
+          style={{ fontSize: 14 }}
+        >
+          GitHub →
+        </a>
+      </div>
+
+      {/* Divider */}
+      <hr
+        style={{
+          border: "none",
+          borderTop: "1px solid #eee",
+          marginTop: 32,
+          marginBottom: 32,
+        }}
+      />
+
+      {/* Projects section */}
+      <p
+        style={{
+          fontSize: 11,
+          textTransform: "uppercase",
+          letterSpacing: "0.1em",
+          color: "#999",
+        }}
+      >
+        Projects
+      </p>
+
+      {/* TeamBrain */}
+      <div style={{ marginTop: 32 }}>
+        <h2 style={{ fontSize: 18, fontWeight: 600 }}>TeamBrain</h2>
+        <p style={{ fontSize: 14, color: "#444", lineHeight: 1.6, marginTop: 8 }}>
+          Inspired by Andrej Karpathy&apos;s ideas on LLMs as knowledge organizers, I built TeamBrain to solve a problem I experienced at HankAI: teams constantly lose knowledge across Slack, meetings, and notes with no connection between them.
+        </p>
+        <p style={{ fontSize: 14, color: "#444", lineHeight: 1.6, marginTop: 10 }}>
+          TeamBrain automatically captures everything, uses AI to organize it into a living knowledge graph, detects contradictions, extracts action items, and answers questions with cited sources. Built on Claude, Voyage AI embeddings, and pgvector.
+        </p>
+        <ImageGrid images={teambrain_images} />
+        <div style={{ display: "flex", gap: 16, marginTop: 12 }}>
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://team-knowledge-base-eta.vercel.app/login"
             target="_blank"
             rel="noopener noreferrer"
+            className="btn-outline"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            Live demo →
           </a>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://github.com/onniemresenol-commits/Team-Knowledge-base"
             target="_blank"
             rel="noopener noreferrer"
+            className="link"
+            style={{ fontSize: 13 }}
           >
-            Documentation
+            GitHub →
           </a>
         </div>
-      </main>
-    </div>
+      </div>
+
+      {/* Coming soon */}
+      <div style={{ marginTop: 32, opacity: 0.4 }}>
+        <h2 style={{ fontSize: 18, fontWeight: 600, color: "#999" }}>
+          Coming soon
+        </h2>
+        <p style={{ fontSize: 14, color: "#999", lineHeight: 1.6, marginTop: 8 }}>
+          Another project is on the way.
+        </p>
+        <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
+          <div
+            style={{
+              flex: 1,
+              height: 160,
+              background: "#f5f5f5",
+              border: "1px solid #eee",
+              borderRadius: 4,
+            }}
+          />
+          <div
+            style={{
+              flex: 1,
+              height: 160,
+              background: "#f5f5f5",
+              border: "1px solid #eee",
+              borderRadius: 4,
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Footer */}
+      <p style={{ fontSize: 12, color: "#999", marginTop: 64 }}>
+        © 2026 Onni Emre Senol
+      </p>
+    </main>
   );
 }
