@@ -46,6 +46,21 @@ export default function Home() {
         >
           GitHub →
         </a>
+        <a
+          href="https://team-knowledge-base-eta.vercel.app/login"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link"
+          style={{
+            fontSize: 14,
+            fontWeight: 600,
+            border: "1px solid currentColor",
+            borderRadius: 4,
+            padding: "2px 8px",
+          }}
+        >
+          Live demo →
+        </a>
       </div>
 
       {/* Divider */}
@@ -74,11 +89,21 @@ export default function Home() {
       <div style={{ marginTop: 32 }}>
         <h2 style={{ fontSize: 18, fontWeight: 600 }}>TeamBrain</h2>
         <p style={{ fontSize: 14, color: "#444", lineHeight: 1.6, marginTop: 8 }}>
-          Inspired by Andrej Karpathy&apos;s ideas on LLMs as knowledge organizers, I built TeamBrain to solve a problem I experienced at HankAI: teams constantly lose knowledge across Slack, meetings, and notes with no connection between them.
+          Inspired by Andrej Karpathy&apos;s ideas on LLMs as knowledge organizers, I built TeamBrain to solve a problem I experienced running HankAI: teams constantly lose knowledge across Slack, meetings, and notes with no connection between them. The insight was simple, instead of asking teams to organize their knowledge, build something that lives inside their daily conversations and does it automatically.
         </p>
         <p style={{ fontSize: 14, color: "#444", lineHeight: 1.6, marginTop: 10 }}>
-          TeamBrain automatically captures everything, uses AI to organize it into a living knowledge graph, detects contradictions, extracts action items, and answers questions with cited sources. Built on Claude, Voyage AI embeddings, and pgvector.
+          TeamBrain connects to Slack, accepts voice notes, and captures manual notes, then uses AI to organize everything into a living knowledge graph. It detects contradictions between sources, extracts action items with owners and deadlines, and answers questions in plain language with cited sources. It&apos;s not another note-taking app. It&apos;s your team&apos;s second brain, built from the conversations you&apos;re already having.
         </p>
+        <p style={{ fontSize: 14, color: "#444", lineHeight: 1.6, marginTop: 10 }}>
+          Throughout building this I developed hands-on understanding of:
+        </p>
+        <ul style={{ fontSize: 14, color: "#444", lineHeight: 1.6, marginTop: 8, paddingLeft: 20 }}>
+          <li><strong>RAG architecture:</strong> designing retrieval pipelines with semantic search, embedding-based deduplication, confidence scoring, and graph-aware retrieval using pgvector</li>
+          <li><strong>LLM prompt engineering:</strong> building grounded, citation-enforced prompts that prevent hallucination and handle conflict detection across sources</li>
+          <li><strong>Data pipeline design:</strong> event-driven ingestion, batch synthesis queues, and async processing across multiple data sources</li>
+          <li><strong>Multi-tenant security:</strong> row-level security in Postgres, workspace isolation, rate limiting, and prompt injection defense</li>
+          <li><strong>Full-stack product development:</strong> shipping a complete SaaS product from database schema to deployed frontend, including OAuth integrations, real-time UI, and graph visualization with D3.js</li>
+        </ul>
         <ImageGrid images={teambrain_images} />
         <div style={{ display: "flex", gap: 16, marginTop: 12 }}>
           <a
